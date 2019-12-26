@@ -5,18 +5,17 @@ const { Reviews } = require('./schema.js');
 
 // mongoose.connect('mongodb://localhost:27017/airbnb', { useNewUrlParser: true });
 
-
+const dataSize = 10000000;
 function fileWriteSync(filePath) {
     const fd = fs.openSync(filePath, 'w');
-    for (let i = 0; i < 10000000; i++) {
+    for (let i = 0; i < dataSize; i++) {
         let data = JSON.stringify(roomReviewGenerator(1));
-        fs.writeSync(fd, data + '\n', null, null);
+        fs.writeSync(fd, i + data + '\n', null, null);
     }
     fs.closeSync(fd);
 }
-fileWriteSync('data.csv');
-
-
+fileWriteSync('PostgreSQLData.csv');
+fileWriteSync('CassandraData.csv');
 
 // Reviews.collection.drop(() => {});
 // console.log("Updating Database...");

@@ -17,11 +17,19 @@ client.connect(err => {
     }
 });
 
-client.query('DROP TABLE IF EXISTS contacts;');
+getRandomInt = (max) => {
+    return Math.floor(Math.random() * Math.floor(max));
+};
+let randInt = getRandomInt(1000000);
+const q = `SELECT reviews FROM reviews WHERE room_id = ${randInt};`;
 
-client.query(
-'CREATE TABLE contacts (id serial PRIMARY KEY, name VARCHAR (100), phones TEXT []);' );
+// client
+//     .query(q)
+//     .then((data) => {
+//         console.log(data.rows[0]);
+//     })
+//     .catch(e => console.error(e.stack))
+//     .then(() => client.end());
 
-client.query(
-"INSERT INTO contacts (name, phones) VALUES ( 'John Doe', ARRAY [ '(408)-589-5846', '(408)-589-5555' ]);"
-);
+
+module.exports = { client };
