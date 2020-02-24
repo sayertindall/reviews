@@ -17,17 +17,17 @@ function fileWriteSync(filePath) {
 fileWriteSync('PostgreSQLData.csv');
 fileWriteSync('CassandraData.csv');
 
-// Reviews.collection.drop(() => {});
-// console.log("Updating Database...");
-// Reviews.insertMany(data)
-//   .then(()=>{
-//     console.log('---Database Updated---');
-//     mongoose.connection.close();
-//   })
-//   .catch(function (err) {
-//     console.log(err);
-//     mongoose.connection.close();
-//   });
+Reviews.collection.drop(() => {});
+console.log("Updating Database...");
+Reviews.insertMany(data)
+  .then(()=>{
+    console.log('---Database Updated---');
+    mongoose.connection.close();
+  })
+  .catch(function (err) {
+    console.log(err);
+    mongoose.connection.close();
+  });
 
 
 
