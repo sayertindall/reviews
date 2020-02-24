@@ -17,11 +17,11 @@ client.connect(err => {
     }
 });
 
-getRandomInt = (max) => {
-    return Math.floor(Math.random() * Math.floor(max));
-};
-let randInt = getRandomInt(1000000);
-const q = `SELECT reviews FROM reviews WHERE room_id = ${randInt};`;
+// getRandomInt = (max) => {
+//     return Math.floor(Math.random() * Math.floor(max));
+// };
+// let randInt = getRandomInt(1000000);
+// const q = `SELECT reviews FROM reviews WHERE room_id = ${randInt};`;
 
 // client
 //     .query(q)
